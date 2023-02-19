@@ -20,7 +20,8 @@ const App = () => {
     event.preventDefault();
     const noteObject = {
       content: newNote,
-      important: Math.random() > 0.5,
+      // important: Math.random() > 0.5,
+      important: true
     };
     noteService.create(noteObject).then((returnedNote) => {
       setNotes(notes.concat(returnedNote));
@@ -40,6 +41,16 @@ const App = () => {
     });
   };
 
+  const delteItem = (id) =>{
+    const note = notes.find((n) => n.id === id);
+    noteService.deleteNote(id).then((returnedNote) => {
+      setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   const notesToShow = showAll ? notes : notes.filter((note) => note.important);
 
   return (
@@ -57,9 +68,11 @@ const App = () => {
               key={note.id}
               note={note}
               toggleImportance={() => toggleImportanceOf(note.id)}
+              deleteThis = { () => delteItem(note.id)}
             />
           ))}
         </ul>
+     
       </ul>
       <form onSubmit={addNote}>
         <input value={newNote} onChange={handleNoteChange} />

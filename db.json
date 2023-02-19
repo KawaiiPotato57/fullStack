@@ -1,11 +1,6 @@
 {
   "notes": [
     {
-      "id": 1,
-      "content": "HTML is easy",
-      "important": true
-    },
-    {
       "id": 2,
       "content": "Browser can execute only JavaScript",
       "important": true
@@ -24,6 +19,16 @@
       "content": "olala phurase dake janai",
       "important": true,
       "id": 5
+    },
+    {
+      "content": "kawaii desu",
+      "important": true,
+      "id": 6
+    },
+    {
+      "content": "lala",
+      "important": true,
+      "id": 7
     }
   ]
 }
