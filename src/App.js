@@ -29,7 +29,7 @@ const App = () => {
     });
   };
 
-  const handleNoteChange = (event) => {
+  const handleNoteChange = (devent) => {
     setNewNote(event.target.value);
   };
 
